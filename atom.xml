@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2016-01-22T06:21:41.000Z</updated>
+  <updated>2016-01-22T06:38:50.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,11 +15,44 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title><![CDATA[「学习笔记」机器学习(1)]]></title>
+    <link href="http://yoursite.com/2016/01/22/%E3%80%8C%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E3%80%8D%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-1/"/>
+    <id>http://yoursite.com/2016/01/22/「学习笔记」机器学习-1/</id>
+    <published>2016-01-22T06:32:57.000Z</published>
+    <updated>2016-01-22T06:38:50.000Z</updated>
+    <content type="html"><![CDATA[<h1 id="1-__u79D1_u5B66_u7B97_u6CD5_u5E93_u7684_u5B89_u88C5_28linux_29"><a href="#1-__u79D1_u5B66_u7B97_u6CD5_u5E93_u7684_u5B89_u88C5_28linux_29" class="headerlink" title="1. 科学算法库的安装(linux)"></a>1. 科学算法库的安装(linux)</h1><p></p><p><br><a id="more"></a></p>
+<ul>
+<li>1.安装Numpy<pre><code>sudo apt-get install python-numpy
+</code></pre></li>
+<li>2.安装Scipy<pre><code>sudo apt-get install python-numpy
+</code></pre></li>
+<li>3.Matplotlib<pre><code>sudo apt-get install tk-dev
+sudo apt-get install python-gtk2-dev
+sudo apt-get install python-pyside
+</code></pre></li>
+<li>4.spyder GUI环境<pre><code>sudo apt-get install spyder
+</code></pre></li>
+</ul>
+<p><br></p>
+<ul>
+<li><strong>上述安装完毕后，可以利用</strong></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#! /usr/bin/python</span></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line">x = np.linspace(<span class="number">0</span>,<span class="number">4</span>*<span class="number">3.1415</span>,<span class="number">100</span>)</span><br><span class="line">y = np.sin(x)</span><br><span class="line"></span><br><span class="line">plt.figure(figsize=(<span class="number">8</span>,<span class="number">4</span>))</span><br><span class="line">plt.plot(x,y,label=<span class="string">"$sin(x)$"</span>,color=<span class="string">"red"</span>,linewidth=<span class="number">2</span>)</span><br><span class="line">plt.legend()</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<p><strong><em>进行测试。若生成正弦曲线窗口，则配置完成. </em></strong></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h1 id="1-__u79D1_u5B66_u7B97_u6CD5_u5E93_u7684_u5B89_u88C5_28linux_29"><a href="#1-__u79D1_u5B66_u7B97_u6CD5_u5E93_u7684_u5B89_u88C5_28linux_29" class="headerlink" title="1. 科学算法库的安装(linux)"></a>1. 科学算法库的安装(linux)</h1><p><p><br>]]>
+    
+    </summary>
+    
+  </entry>
+  
+  <entry>
     <title><![CDATA[Hello World]]></title>
     <link href="http://yoursite.com/2016/01/22/hello-world/"/>
     <id>http://yoursite.com/2016/01/22/hello-world/</id>
-    <published>2016-01-22T06:21:41.000Z</published>
-    <updated>2016-01-22T06:21:41.000Z</updated>
+    <published>2016-01-22T06:23:31.000Z</published>
+    <updated>2016-01-22T06:23:31.000Z</updated>
     <content type="html"><![CDATA[<p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
 <h2 id="Quick_Start"><a href="#Quick_Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><a id="more"></a>
 <h3 id="Create_a_new_post"><a href="#Create_a_new_post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
@@ -44,10 +77,12 @@
     <link href="http://yoursite.com/2016/01/22/%E9%87%8D%E5%86%99%E5%8D%9A%E5%AE%A2/"/>
     <id>http://yoursite.com/2016/01/22/重写博客/</id>
     <published>2016-01-22T05:58:07.000Z</published>
-    <updated>2016-01-22T06:21:25.000Z</updated>
+    <updated>2016-01-22T06:23:18.000Z</updated>
     <content type="html"><![CDATA[<p>一件很不幸的事，我重装系统的时候好像忘了把hexo的文章备份下来，结果那些markdown文档就都呵呵了 TAT～</p>
 <p><br></p>
-<p>重新配置了一次hexo真的好麻烦，搞了半天，我真不知道我当时是怎么弄好的！<br><a id="more"></a><br><br></p>
+<p>重新配置了一次hexo真的好麻烦，搞了半天，我真不知道我当时是怎么弄好的！</p>
+<a id="more"></a>
+<p><br></p>
 <p>之前的那些文章我还没有md文档，不过我倒是把整个博客给clone下来保存好了，以后如果有时间还是会恢复的吧。</p>
 <p><br></p>
 <p>这么快就放假了，然而真心觉得2015有点对不起自己，对不起这一年的时间。不过怎么说呢，后悔是没有用的，毕竟人要往前看嘛。只是希望2016结束的时候我不要还是这样，还是说出同样的话。</p>
@@ -56,7 +91,7 @@
     <summary type="html">
     <![CDATA[<p>一件很不幸的事，我重装系统的时候好像忘了把hexo的文章备份下来，结果那些markdown文档就都呵呵了 TAT～</p>
 <p><br></p>
-<p>重新配置了一次hexo真的好麻烦，搞了半天，我真不知道我当时是怎么弄好的！<br>]]>
+<p>重新配置了一次hexo真的好麻烦，搞了半天，我真不知道我当时是怎么弄好的！</p>]]>
     
     </summary>
     
