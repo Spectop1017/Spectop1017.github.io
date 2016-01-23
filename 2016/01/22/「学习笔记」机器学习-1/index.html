@@ -67,7 +67,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/01/22/「学习笔记」机器学习-1/index.html">
 <meta property="og:site_name" content="Spectop's">
 <meta property="og:description" content="1. 科学算法库的安装(linux)">
-<meta property="og:updated_time" content="2016-01-22T07:03:56.000Z">
+<meta property="og:updated_time" content="2016-01-23T16:44:40.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="「学习笔记」机器学习(1)">
 <meta name="twitter:description" content="1. 科学算法库的安装(linux)">
@@ -351,15 +351,44 @@ sudo apt-get install python-pyside
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">matrix = multiply(matrix1, matrix2) <span class="comment"># matrix1 和 matrix2 对应元素相乘的矩阵</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>求矩阵的 n 次幂</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">matrix = power(myMatrix, n)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">matrix = power(myMatrix, n) <span class="comment">#生成一个矩阵，矩阵内部的元素是原矩阵对应元素的n次幂</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>矩阵的转置</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">print</span> matrix.T   <span class="comment">#打印转置后的矩阵，不改变原矩阵</span></span><br><span class="line">matrix.transpose()   <span class="comment">#同上</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>矩阵的其他操作</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[m, n] = shape(matrix) <span class="comment"># m, n为矩阵的行列数</span></span><br><span class="line">myscl1 = matrix[<span class="number">0</span>] <span class="comment"># 矩阵的切片操作，取第一行</span></span><br><span class="line">myscl2 = matrix.T[<span class="number">0</span>] <span class="comment"># 矩阵的切片操作，取第一列</span></span><br><span class="line">mycpmat = matrix.copy() <span class="comment"># 矩阵的复制</span></span><br><span class="line"><span class="keyword">print</span> matrix1 &lt; matrix2 <span class="comment"># 矩阵的比较，会逐一比较对应的每一个元素，并输出一个仅包含True, False 的相同大小的矩阵</span></span><br></pre></td></tr></table></figure></li>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[m, n] = shape(matrix) <span class="comment"># m, n为矩阵的行列数</span></span><br><span class="line">myscl1 = matrix[<span class="number">0</span>] <span class="comment"># 矩阵的切片操作，取第一行</span></span><br><span class="line">myscl2 = matrix.T[<span class="number">0</span>] <span class="comment"># 矩阵的切片操作，取第一列</span></span><br><span class="line">mycpmat = matrix.copy() <span class="comment"># 矩阵的复制</span></span><br><span class="line"><span class="keyword">print</span> matrix1 &lt; matrix2 <span class="comment"># 矩阵的比较，会逐一比较对应的每一个元素，并输出一个仅包含True, False 的相同大小的矩阵</span></span><br></pre></td></tr></table></figure>
+</li>
 </ol>
 </li>
+<li><h2 id="3-_Linalg_u7EBF_u6027_u4EE3_u6570_u5E93"><a href="#3-_Linalg_u7EBF_u6027_u4EE3_u6570_u5E93" class="headerlink" title="3. Linalg线性代数库"></a>3. Linalg线性代数库</h2><ol>
+<li><p>矩阵的行列式</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">print</span> linalg.det(matrix)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>矩阵的逆</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">print</span> linalg.inv(matrix)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>矩阵的对称</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">print</span> matrix * matrix.T</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>矩阵的秩</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">print</span> linalg.matrix_rank(A)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>可逆矩阵求解</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">print</span> linalg.solve(A,b.T) <span class="comment"># 如果b已经是一列的就不用转置了</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+</ul>
+<h1 id="3-__u673A_u5668_u5B66_u4E60_u7684_u6570_u5B66_u57FA_u7840"><a href="#3-__u673A_u5668_u5B66_u4E60_u7684_u6570_u5B66_u57FA_u7840" class="headerlink" title="3. 机器学习的数学基础"></a>3. 机器学习的数学基础</h1><ul>
+<li><strong>范数</strong><blockquote>
+<p>向量的范数可以简单、形象的理解为<strong>向量的长度</strong>，或者向量到坐标系原点的距离，或者<strong>相应空间内的两点之间的距离</strong></p>
+<p><strong><em>向量的范数定义</em></strong> : 向量的范数是一个函数 \(\mid\mid x\mid\mid\) ,满足非负性\(\mid\mid x\mid\mid &gt; 0\) , 齐次性\(\mid\mid cx\mid\mid = \mid c\mid\ \mid\mid x\mid\mid\) ,三角不等式\(\mid\mid x+y\mid\mid \leq\mid\mid x\mid\mid +\mid\mid y\mid\mid\) 。</p>
+<p>L1范数： \(\mid\mid x\mid\mid\)为\( x\)向量各个元素绝对值之和。<br>L2范数： \(\mid\mid x\mid\mid\)为\( x\)向量各个元素平方和的开方，又称 Euclidean 范数或者 Frobenius 范数。<br>Lp范数： \(\mid\mid x\mid\mid\)为\( x\)向量各个元素绝对值\( p\)次方和的 \( 1\over p\) 次方<br>L\(\infty\)范数： \(\mid\mid x\mid\mid\)为\( x\)向量各个元素绝对值最大的那个元素，如下：<br>\( \lim_{k\rightarrow\infty} \)</p>
+</blockquote>
+</li>
+<li><strong>Minkowski Distance</strong></li>
+<li><strong>Euclideam Distance</strong></li>
 </ul>
 
       
@@ -536,7 +565,7 @@ sudo apt-get install python-pyside
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-__u79D1_u5B66_u7B97_u6CD5_u5E93_u7684_u5B89_u88C5_28linux_29"><span class="nav-number">1.</span> <span class="nav-text">1. 科学算法库的安装(linux)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-_NumPy_u7684_u57FA_u672C_u64CD_u4F5C"><span class="nav-number">2.</span> <span class="nav-text">2. NumPy的基本操作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-_Numpy__u7684_u5BFC_u5165"><span class="nav-number">2.1.</span> <span class="nav-text">1. Numpy 的导入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-_NumPy__u7684_u57FA_u672C_u64CD_u4F5C"><span class="nav-number">2.2.</span> <span class="nav-text">2. NumPy 的基本操作</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-__u79D1_u5B66_u7B97_u6CD5_u5E93_u7684_u5B89_u88C5_28linux_29"><span class="nav-number">1.</span> <span class="nav-text">1. 科学算法库的安装(linux)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-_NumPy_u7684_u57FA_u672C_u64CD_u4F5C"><span class="nav-number">2.</span> <span class="nav-text">2. NumPy的基本操作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-_Numpy__u7684_u5BFC_u5165"><span class="nav-number">2.1.</span> <span class="nav-text">1. Numpy 的导入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-_NumPy__u7684_u57FA_u672C_u64CD_u4F5C"><span class="nav-number">2.2.</span> <span class="nav-text">2. NumPy 的基本操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-_Linalg_u7EBF_u6027_u4EE3_u6570_u5E93"><span class="nav-number">2.3.</span> <span class="nav-text">3. Linalg线性代数库</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-__u673A_u5668_u5B66_u4E60_u7684_u6570_u5B66_u57FA_u7840"><span class="nav-number">3.</span> <span class="nav-text">3. 机器学习的数学基础</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
