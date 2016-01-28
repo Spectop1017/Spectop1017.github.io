@@ -67,8 +67,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/01/22/「学习笔记」机器学习-1/index.html">
 <meta property="og:site_name" content="Spectop's">
 <meta property="og:description" content="1. 科学算法库的安装(linux)">
-<meta property="og:image" content="http://7xqf1q.com1.z0.glb.clouddn.com/jqxx_02.png">
-<meta property="og:updated_time" content="2016-01-23T17:46:28.000Z">
+<meta property="og:updated_time" content="2016-01-28T15:59:33.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="「学习笔记」机器学习(1)">
 <meta name="twitter:description" content="1. 科学算法库的安装(linux)">
@@ -384,11 +383,14 @@ sudo apt-get install python-pyside
 <h1 id="3-__u673A_u5668_u5B66_u4E60_u7684_u6570_u5B66_u57FA_u7840"><a href="#3-__u673A_u5668_u5B66_u4E60_u7684_u6570_u5B66_u57FA_u7840" class="headerlink" title="3. 机器学习的数学基础"></a>3. 机器学习的数学基础</h1><ul>
 <li><strong>范数</strong><blockquote>
 <p>向量的范数可以简单、形象的理解为<strong>向量的长度</strong>，或者向量到坐标系原点的距离，或者<strong>相应空间内的两点之间的距离</strong></p>
-<p><strong><em>向量的范数定义</em></strong> : 向量的范数是一个函数 \(\mid\mid x\mid\mid\) ,满足非负性\(\mid\mid x\mid\mid &gt; 0\) , 齐次性\(\mid\mid cx\mid\mid = \mid c\mid\ \mid\mid x\mid\mid\) ,三角不等式\(\mid\mid x+y\mid\mid \leq\mid\mid x\mid\mid +\mid\mid y\mid\mid\) 。</p>
-<p>L1范数： \(\mid\mid x\mid\mid\)为\( x\)向量各个元素绝对值之和。<br>L2范数： \(\mid\mid x\mid\mid\)为\( x\)向量各个元素平方和的开方，又称 Euclidean 范数或者 Frobenius 范数。<br>Lp范数： \(\mid\mid x\mid\mid\)为\( x\)向量各个元素绝对值\( p\)次方和的 \( 1\over p\) 次方<br>L\(\infty\)范数： \(\mid\mid x\mid\mid\)为\( x\)向量各个元素绝对值最大的那个元素，如下：<br><img src="http://7xqf1q.com1.z0.glb.clouddn.com/jqxx_02.png" alt="ddd"></p>
+<p><strong><em>向量的范数定义</em></strong> : 向量的范数是一个函数 $ \mid\mid x\mid\mid $ ,满足非负性 $ \mid\mid x\mid\mid &gt; 0 $ , 齐次性 $ \mid\mid cx\mid\mid = \mid c\mid\ \mid\mid x\mid\mid $ ,三角不等式 $ \mid\mid x+y\mid\mid \leq\mid\mid x\mid\mid +\mid\mid y\mid\mid $ 。</p>
+<p>L1范数：  $\mid\mid x\mid\mid $为 $ x $向量各个元素绝对值之和。<br>L2范数：  $\mid\mid x\mid\mid $为 $ x $向量各个元素平方和的开方，又称 Euclidean 范数或者 Frobenius 范数。<br>Lp范数：  $\mid\mid x\mid\mid $为 $ x $向量各个元素绝对值 $ p $次方和的  $ 1\over p $ 次方<br>L $\infty $范数：  $\mid\mid x\mid\mid $为 $ x $向量各个元素绝对值最大的那个元素，如下：$$ \lim_{k\to\infty}\left( \sum_{i=1}^n\mid p_i-q_i\mid ^k\right)^\frac{1}{k}<br>$$</p>
 </blockquote>
 </li>
-<li><strong>Minkowski Distance</strong></li>
+<li><strong>Minkowski Distance (闵可夫斯基距离)</strong><blockquote>
+<p>严格意义上讲，Minkowski Distance 不是一种距离，而是一组距离的定义</p>
+</blockquote>
+</li>
 <li><strong>Euclideam Distance</strong></li>
 </ul>
 
