@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2016-01-28T15:59:33.000Z</updated>
+  <updated>2016-01-28T16:24:46.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,11 +15,48 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title><![CDATA[markdown文档中mathjax的问题]]></title>
+    <link href="http://yoursite.com/2016/01/29/markdown%E6%96%87%E6%A1%A3%E4%B8%ADmathjax%E7%9A%84%E9%97%AE%E9%A2%98/"/>
+    <id>http://yoursite.com/2016/01/29/markdown文档中mathjax的问题/</id>
+    <published>2016-01-28T16:03:10.000Z</published>
+    <updated>2016-01-28T16:24:46.000Z</updated>
+    <content type="html"><![CDATA[<p>在写markdown文档时经常会需要插入数学公式，我之前只会使用图片插入，上次在看到mathjax后，我开始了使用mathjax的历程，但在实际写文档的过程中遇到了一些问题。</p>
+<a id="more"></a>
+<h1 id="u5173_u4E8E_u6709_u4E00_u4E9B_u516C_u5F0F_u65E0_u6CD5_u6B63_u786E_u7684_u663E_u793A"><a href="#u5173_u4E8E_u6709_u4E00_u4E9B_u516C_u5F0F_u65E0_u6CD5_u6B63_u786E_u7684_u663E_u793A" class="headerlink" title="关于有一些公式无法正确的显示"></a>关于有一些公式无法正确的显示</h1><p>在写机器学习的文章中遇到的一个关于范数的公式写出来编辑器上显示没有问题，但是一旦放进文档里就不行了，这个问题困扰了我很长时间。</p>
+<p>这是代码：<br><figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; 严格意义上讲，Minkowski Distance 不是一种距离，而是一组距离的定义</span><br><span class="line">&gt; <span class="formula">$$ <span class="command">\lim</span>_<span class="special">&#123;</span>k<span class="command">\to</span><span class="command">\infty</span><span class="special">&#125;</span><span class="command">\left</span>( <span class="command">\sum</span>_<span class="special">&#123;</span>i=1<span class="special">&#125;</span>^n<span class="command">\mid</span> p_i-q_i<span class="command">\mid</span> ^k<span class="command">\right</span>)^<span class="command">\frac</span><span class="special">&#123;</span>1<span class="special">&#125;</span><span class="special">&#123;</span>k<span class="special">&#125;</span> $$</span></span><br></pre></td></tr></table></figure></p>
+<p>这是效果：</p>
+<blockquote>
+<p>严格意义上讲，Minkowski Distance 不是一种距离，而是一组距离的定义<br>$$ \lim<em>{k\to\infty}\left( \sum</em>{i=1}^n\mid p_i-q_i\mid ^k\right)^\frac{1}{k} $$</p>
+</blockquote>
+<p>这里haroopad显示的公式是正确的，但是hexo编译过后的网页显示就不对了。</p>
+<p>把代码剪裁一下，看看什么样子的公式是可以的：<br><figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; 严格意义上讲，Minkowski Distance 不是一种距离，而是一组距离的定义</span><br><span class="line">&gt; <span class="formula">$$ <span class="command">\lim</span>_<span class="special">&#123;</span>k<span class="command">\to</span><span class="command">\infty</span><span class="special">&#125;</span><span class="command">\left</span>( <span class="command">\sum</span>_i <span class="command">\right</span>) $$</span></span><br></pre></td></tr></table></figure></p>
+<p>效果：</p>
+<blockquote>
+<p>严格意义上讲，Minkowski Distance 不是一种距离，而是一组距离的定义<br>$$ \lim_{k\to\infty}\left( \sum_i \right) $$</p>
+</blockquote>
+<p>这个好像就可以，但是貌似sum后面的i一旦加上花括号就不行：<br><figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; 严格意义上讲，Minkowski Distance 不是一种距离，而是一组距离的定义</span><br><span class="line">&gt; <span class="formula">$$ <span class="command">\lim</span>_<span class="special">&#123;</span>k<span class="command">\to</span><span class="command">\infty</span><span class="special">&#125;</span><span class="command">\left</span>( <span class="command">\sum</span>_<span class="special">&#123;</span>i<span class="special">&#125;</span> <span class="command">\right</span>) $$</span></span><br></pre></td></tr></table></figure></p>
+<p>效果：</p>
+<blockquote>
+<p>严格意义上讲，Minkowski Distance 不是一种距离，而是一组距离的定义<br>$$ \lim<em>{k\to\infty}\left( \sum</em>{i} \right) $$</p>
+</blockquote>
+<p>于是我点开了两个网页的源代码，定位到这一行：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">p</span>&gt;</span>严格意义上讲，Minkowski Distance 不是一种距离，而是一组距离的定义<span class="tag">&lt;<span class="title">br</span>&gt;</span>$$ \lim<span class="tag">&lt;<span class="title">em</span>&gt;</span>&#123;k\to\infty&#125;\left( \sum<span class="tag">&lt;/<span class="title">em</span>&gt;</span>&#123;i&#125; \right) $$<span class="tag">&lt;/<span class="title">p</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">p</span>&gt;</span>严格意义上讲，Minkowski Distance 不是一种距离，而是一组距离的定义<span class="tag">&lt;<span class="title">br</span>&gt;</span>$$ \lim_&#123;k\to\infty&#125;\left( \sum_i \right) $$<span class="tag">&lt;/<span class="title">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>可以发现最明显的不同就算lim后面的 <code>&lt;em&gt;</code>，这时我们注意到，hexo在编译的时候将lim和sum后面的下划线 _翻译成强调的 <code>&lt;em&gt;</code> 了，仔细观察前面的公式，确实可以发现一部分变成了斜体。所以我们要在所有的下划线 _ 前面加上 \ 转义就可以了。</p>
+<p><strong>OK，搞定</strong></p>
+<h3 id="p-s__u6211_u7684chrome_u4E0A_u663E_u793A_u7684_u516C_u5F0F_u540E_u9762_u90FD_u6709_u4E00_u4E2A_u7AD6_u7EBF_uFF0Cfirefox_u6CA1_u6709_uFF0C_u5185_u5565_uFF0C_u4E00_u822C_u5E73_u65F6_u7528chrome_u4E60_u60EF_uFF0C_u6240_u4EE5_u6709_u4EBA_u77E5_u9053_u600E_u4E48_u5F04_u54A9_uFF1F"><a href="#p-s__u6211_u7684chrome_u4E0A_u663E_u793A_u7684_u516C_u5F0F_u540E_u9762_u90FD_u6709_u4E00_u4E2A_u7AD6_u7EBF_uFF0Cfirefox_u6CA1_u6709_uFF0C_u5185_u5565_uFF0C_u4E00_u822C_u5E73_u65F6_u7528chrome_u4E60_u60EF_uFF0C_u6240_u4EE5_u6709_u4EBA_u77E5_u9053_u600E_u4E48_u5F04_u54A9_uFF1F" class="headerlink" title="p.s 我的chrome上显示的公式后面都有一个竖线，firefox没有，内啥，一般平时用chrome习惯，所以有人知道怎么弄咩？"></a>p.s 我的chrome上显示的公式后面都有一个竖线，firefox没有，内啥，一般平时用chrome习惯，所以有人知道怎么弄咩？</h3>]]></content>
+    <summary type="html">
+    <![CDATA[<p>在写markdown文档时经常会需要插入数学公式，我之前只会使用图片插入，上次在看到mathjax后，我开始了使用mathjax的历程，但在实际写文档的过程中遇到了一些问题。</p>]]>
+    
+    </summary>
+    
+  </entry>
+  
+  <entry>
     <title><![CDATA[「学习笔记」机器学习(1)]]></title>
     <link href="http://yoursite.com/2016/01/22/%E3%80%8C%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E3%80%8D%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-1/"/>
     <id>http://yoursite.com/2016/01/22/「学习笔记」机器学习-1/</id>
     <published>2016-01-22T06:32:57.000Z</published>
-    <updated>2016-01-28T15:59:33.000Z</updated>
+    <updated>2016-01-28T16:01:47.000Z</updated>
     <content type="html"><![CDATA[<h1 id="1-__u79D1_u5B66_u7B97_u6CD5_u5E93_u7684_u5B89_u88C5_28linux_29"><a href="#1-__u79D1_u5B66_u7B97_u6CD5_u5E93_u7684_u5B89_u88C5_28linux_29" class="headerlink" title="1. 科学算法库的安装(linux)"></a>1. 科学算法库的安装(linux)</h1><p></p><p><br><a id="more"></a></p>
 <ul>
 <li>1.安装Numpy<pre><code>sudo apt-get install python-numpy
