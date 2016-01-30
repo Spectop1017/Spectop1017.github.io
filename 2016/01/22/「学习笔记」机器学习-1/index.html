@@ -65,7 +65,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/01/22/「学习笔记」机器学习-1/index.html">
 <meta property="og:site_name" content="Spectop's">
 <meta property="og:description" content="1. 科学算法库的安装(linux)">
-<meta property="og:updated_time" content="2016-01-28T16:01:47.000Z">
+<meta property="og:updated_time" content="2016-01-30T12:16:21.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="「学习笔记」机器学习(1)">
 <meta name="twitter:description" content="1. 科学算法库的安装(linux)">
@@ -355,7 +355,7 @@ sudo apt-get install python-pyside
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">print</span> matrix.T   <span class="comment">#打印转置后的矩阵，不改变原矩阵</span></span><br><span class="line">matrix.transpose()   <span class="comment">#同上</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>矩阵的其他操作</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[m, n] = shape(matrix) <span class="comment"># m, n为矩阵的行列数</span></span><br><span class="line">myscl1 = matrix[<span class="number">0</span>] <span class="comment"># 矩阵的切片操作，取第一行</span></span><br><span class="line">myscl2 = matrix.T[<span class="number">0</span>] <span class="comment"># 矩阵的切片操作，取第一列</span></span><br><span class="line">mycpmat = matrix.copy() <span class="comment"># 矩阵的复制</span></span><br><span class="line"><span class="keyword">print</span> matrix1 &lt; matrix2 <span class="comment"># 矩阵的比较，会逐一比较对应的每一个元素，并输出一个仅包含True, False 的相同大小的矩阵</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[m, n] = shape(matrix) <span class="comment"># m, n为矩阵的行列数</span></span><br><span class="line">myscl1 = matrix[<span class="number">0</span>] <span class="comment"># 矩阵的切片操作，取第一行</span></span><br><span class="line">myscl2 = matrix.T[<span class="number">0</span>] <span class="comment"># 矩阵的切片操作，取第一列</span></span><br><span class="line">mycpmat = matrix.copy() <span class="comment"># 矩阵的复制</span></span><br><span class="line"><span class="keyword">print</span> matrix1 &lt; matrix2 <span class="comment"># 矩阵的比较，会逐一比较对应的每一个元素，并输出一个仅包含True, False 的相同大小的矩阵</span></span><br><span class="line">dot(m1,m2)  <span class="comment">#计算m1,m2的点积</span></span><br><span class="line">norm(v)  <span class="comment">#计算向量V的范数</span></span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 </li>
@@ -377,19 +377,69 @@ sudo apt-get install python-pyside
 </li>
 </ol>
 </li>
+<li><h2 id="4-__u5404_u7C7B_u8DDD_u79BB_u7684python_u5B9E_u73B0"><a href="#4-__u5404_u7C7B_u8DDD_u79BB_u7684python_u5B9E_u73B0" class="headerlink" title="4. 各类距离的python实现"></a>4. 各类距离的python实现</h2><p>   <strong>各类距离会在后面说明</strong></p>
+<ol>
+<li><p>Euclidean Distance</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vector1 = mat([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>])</span><br><span class="line">vector2 = mat([<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>])</span><br><span class="line"><span class="keyword">print</span> sqrt((vector1-vector2)*(vector1-vector2).T)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Manhattan Distance</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vector1 = mat([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>])</span><br><span class="line">vector2 = mat([<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>])</span><br><span class="line"><span class="keyword">print</span> sum(abs(vector1-vector2))</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Chebyshev Distance</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vector1 = mat([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>])</span><br><span class="line">vector2 = mat([<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>])</span><br><span class="line"><span class="keyword">print</span> abs(vector1-vector2).max()</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Cosine</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cosV12 = dot(vector1,vector2)/(linalg.norm(vector1)*linalg.norm(vector2))</span><br><span class="line"><span class="keyword">print</span> cosV12</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Hamming Distance</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">matV = mat([[<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>], [<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>]])</span><br><span class="line">smstr = nonzero(matV[<span class="number">0</span>] - matV[<span class="number">1</span>]);</span><br><span class="line"><span class="keyword">print</span> shape(smstr[<span class="number">0</span>])[<span class="number">1</span>]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Jaccard Distance</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> scipy.spatial.distance <span class="keyword">as</span> dict</span><br><span class="line">matV = mat([[<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>], [<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>]])</span><br><span class="line"><span class="keyword">print</span> dist.pdist(matV, <span class="string">'jaccard'</span>)</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
 </ul>
 <h1 id="3-__u673A_u5668_u5B66_u4E60_u7684_u6570_u5B66_u57FA_u7840"><a href="#3-__u673A_u5668_u5B66_u4E60_u7684_u6570_u5B66_u57FA_u7840" class="headerlink" title="3. 机器学习的数学基础"></a>3. 机器学习的数学基础</h1><ul>
 <li><strong>范数</strong><blockquote>
 <p>向量的范数可以简单、形象的理解为<strong>向量的长度</strong>，或者向量到坐标系原点的距离，或者<strong>相应空间内的两点之间的距离</strong></p>
-<p><strong><em>向量的范数定义</em></strong> : 向量的范数是一个函数 $ \mid\mid x\mid\mid $ ,满足非负性 $ \mid\mid x\mid\mid &gt; 0 $ , 齐次性 $ \mid\mid cx\mid\mid = \mid c\mid\ \mid\mid x\mid\mid $ ,三角不等式 $ \mid\mid x+y\mid\mid \leq\mid\mid x\mid\mid +\mid\mid y\mid\mid $ 。</p>
-<p>L1范数：  $\mid\mid x\mid\mid $为 $ x $向量各个元素绝对值之和。<br>L2范数：  $\mid\mid x\mid\mid $为 $ x $向量各个元素平方和的开方，又称 Euclidean 范数或者 Frobenius 范数。<br>Lp范数：  $\mid\mid x\mid\mid $为 $ x $向量各个元素绝对值 $ p $次方和的  $ 1\over p $ 次方<br>L $\infty $范数：  $\mid\mid x\mid\mid $为 $ x $向量各个元素绝对值最大的那个元素，如下：$$ \lim_{k\to\infty}\left( \sum_{i=1}^n\mid p_i-q_i\mid ^k\right)^\frac{1}{k}<br>$$</p>
+<p><strong><em>向量的范数定义</em></strong> : 向量的范数是一个函数 $ \parallel x\parallel $ ,满足非负性 $ \parallel x\parallel &gt; 0 $ , 齐次性 $ \parallel cx\parallel = \mid c\mid\parallel x\parallel $ ,三角不等式 $ \parallel x+y\parallel \leq\parallel x\parallel +\parallel y\parallel $ 。</p>
+<p>L1范数：  $\parallel x\parallel $为 $ x $向量各个元素绝对值之和。<br>L2范数：  $\parallel x\parallel $为 $ x $向量各个元素平方和的开方，又称 Euclidean 范数或者 Frobenius 范数。<br>Lp范数：  $\parallel x\parallel $为 $ x $向量各个元素绝对值 $ p $次方和的  $ 1\over p $ 次方<br>L $\infty $范数：  $\parallel x\parallel $为 $ x $向量各个元素绝对值最大的那个元素，如下：$$ \lim_{k\to\infty}\left( \sum_{i=1}^n\mid p_i-q_i\mid ^k\right)^\frac{1}{k}<br>$$</p>
 </blockquote>
 </li>
 <li><strong>Minkowski Distance (闵可夫斯基距离)</strong><blockquote>
-<p>严格意义上讲，Minkowski Distance 不是一种距离，而是一组距离的定义</p>
+<p>严格意义上讲，Minkowski Distance 不是一种距离，而是一组距离的定义。<br>两个n维向量 $ A(x_{11},x_{12},\cdots,x_{1n}) $ 与 $ B(x_{21},x_{22},\cdots,x_{2n}) $ 间的Minkowski距离定义为：<br>$$ d_{12}=\sqrt[p]{\sum_{k=1}^n(x_{1k}-x_{2k})^p} $$<br>其中p是一个变参数。</p>
+<ul>
+<li>当 p=1 时，就是 Manhattan Distance (曼哈顿距离)</li>
+<li>当 p=2 时，就是 Euclidean Distance (欧氏距离)</li>
+<li>当 $ p\to\infty $ 时，就是 Chebyshev Distance (切比雪夫距离)</li>
+</ul>
 </blockquote>
 </li>
-<li><strong>Euclideam Distance</strong></li>
+<li><strong>Euclideam Distance</strong><blockquote>
+<p>欧氏距离（L2范数）是最易于理解的一种距离计算方法，源于欧氏空间的两点距离公式<br>两个n维向量 $ A(x_{11},x_{12},\cdots,x_{1n}) $ 与 $ B(x_{21},x_{22},\cdots,x_{2n}) $ 之间的欧氏距离：<br>$$ d_{12}=\sqrt{\sum_{k=1}^n(x_{1k}-x_{2k})^2} $$<br>表示为向量运算的形式：<br>$$ d_{12}=\sqrt{(A - B)(A - B)^T} $$</p>
+</blockquote>
+</li>
+<li><strong>Manhattan Distance</strong><blockquote>
+<p>曼哈顿距离（L1范数）可以理解为计算网格中两点路径的距离<br>二维平面两点 $ A(x_1,y_1) $ 和 $ B(x_2,y_2) $ 间的曼哈顿距离:<br>$$ d_{12}=\mid x_1-x_2\mid +\mid y_1-y_2\mid $$<br>两个n维向量 $ A(x_{11},x_{12},\cdots,x_{1n}) $ 与 $ B(x_{21},x_{22},\cdots,x_{2n}) $ 之间的曼哈顿距离：<br>$$ d_{12}=\sum_{k=1}^n\mid x_{1k}-x_{2k}\mid $$</p>
+</blockquote>
+</li>
+<li><strong>Chebyshev Distance</strong><blockquote>
+<p>切比雪夫距离类似与棋盘上国王从一点到另一点移动的最少次数，即 $ max(\mid x_1-x_2\mid,\mid y_1-y_2\mid) $<br>两个n维向量 $ A(x_{11},x_{12},\cdots,x_{1n}) $ 与 $ B(x_{21},x_{22},\cdots,x_{2n}) $ 之间的切比雪夫距离：<br>$$ d_{12}=max_i(\mid x_{1i}-x_{2i}\mid) $$<br>该公式的另一个等价公式：<br>$$ d_{12}=\lim_{k\to\infty}\left(\sum_{i=1}^n\mid x_{1i}-x_{2i}\mid^k\right)^\frac{1}{k} $$</p>
+</blockquote>
+</li>
+<li><strong>Cosine</strong><blockquote>
+<p>夹角余弦可以用来两个向量方向的差异，机器学习中借用这一概念来衡量样本之间的差异<br>两个n维向量 $ A(x_{11},x_{12},\cdots,x_{1n}) $ 与 $ B(x_{21},x_{22},\cdots,x_{2n}) $ 之间的夹角余弦：<br>$$ \cos\theta=\frac{AB}{\mid A\mid\mid B\mid} $$<br>即：<br>$$ \cos\theta=\frac{\sum_{k=1}^nx_{1k}x_{2k}}{\sqrt{\sum_{k=1}^nx_{1k}^2}\sqrt{\sum_{k=1}^nx_{2k}^2}} $$</p>
+</blockquote>
+</li>
+<li><strong>Hamming Distance</strong><blockquote>
+<p>汉明距离的定义：两个等长字符串s1,s2,将其中一个变成另一个需要的最小替换次数。<br>应用：信息编码（为了增强容错性，应使得编码间的最小汉明距离尽可能大）</p>
+</blockquote>
+</li>
+<li><strong>Jaccard Similarity Coefficient(杰卡德相似系数)</strong><blockquote>
+<p>杰卡德相似系数：两个集合A,B的交集元素在并集元素中所占的比例，用符号 $ J(A,B) $ 表示<br>$$ J(A,B)=\frac{\mid A\cap B\mid}{\mid A\cup B\mid} $$<br>杰卡德距：与杰卡德相似系数相反的概念：<br>$$ J_\delta(A,B)=1-J(A,B)=\frac{\mid A\cup B\mid-\mid A\cap B\mid}{\mid A\cup B\mid} $$</p>
+</blockquote>
+</li>
 </ul>
 
       
@@ -570,7 +620,7 @@ sudo apt-get install python-pyside
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-__u79D1_u5B66_u7B97_u6CD5_u5E93_u7684_u5B89_u88C5_28linux_29"><span class="nav-number">1.</span> <span class="nav-text">1. 科学算法库的安装(linux)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-_NumPy_u7684_u57FA_u672C_u64CD_u4F5C"><span class="nav-number">2.</span> <span class="nav-text">2. NumPy的基本操作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-_Numpy__u7684_u5BFC_u5165"><span class="nav-number">2.1.</span> <span class="nav-text">1. Numpy 的导入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-_NumPy__u7684_u57FA_u672C_u64CD_u4F5C"><span class="nav-number">2.2.</span> <span class="nav-text">2. NumPy 的基本操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-_Linalg_u7EBF_u6027_u4EE3_u6570_u5E93"><span class="nav-number">2.3.</span> <span class="nav-text">3. Linalg线性代数库</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-__u673A_u5668_u5B66_u4E60_u7684_u6570_u5B66_u57FA_u7840"><span class="nav-number">3.</span> <span class="nav-text">3. 机器学习的数学基础</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-__u79D1_u5B66_u7B97_u6CD5_u5E93_u7684_u5B89_u88C5_28linux_29"><span class="nav-number">1.</span> <span class="nav-text">1. 科学算法库的安装(linux)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-_NumPy_u7684_u57FA_u672C_u64CD_u4F5C"><span class="nav-number">2.</span> <span class="nav-text">2. NumPy的基本操作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-_Numpy__u7684_u5BFC_u5165"><span class="nav-number">2.1.</span> <span class="nav-text">1. Numpy 的导入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-_NumPy__u7684_u57FA_u672C_u64CD_u4F5C"><span class="nav-number">2.2.</span> <span class="nav-text">2. NumPy 的基本操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-_Linalg_u7EBF_u6027_u4EE3_u6570_u5E93"><span class="nav-number">2.3.</span> <span class="nav-text">3. Linalg线性代数库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-__u5404_u7C7B_u8DDD_u79BB_u7684python_u5B9E_u73B0"><span class="nav-number">2.4.</span> <span class="nav-text">4. 各类距离的python实现</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-__u673A_u5668_u5B66_u4E60_u7684_u6570_u5B66_u57FA_u7840"><span class="nav-number">3.</span> <span class="nav-text">3. 机器学习的数学基础</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
