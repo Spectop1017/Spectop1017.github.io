@@ -56,7 +56,7 @@
     <link href="http://yoursite.com/2016/01/22/%E3%80%8C%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E3%80%8D%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-1/"/>
     <id>http://yoursite.com/2016/01/22/「学习笔记」机器学习-1/</id>
     <published>2016-01-22T06:32:57.000Z</published>
-    <updated>2016-01-31T09:03:54.000Z</updated>
+    <updated>2016-03-03T03:03:33.000Z</updated>
     <content type="html"><![CDATA[<h1 id="1-__u79D1_u5B66_u7B97_u6CD5_u5E93_u7684_u5B89_u88C5_28linux_29"><a href="#1-__u79D1_u5B66_u7B97_u6CD5_u5E93_u7684_u5B89_u88C5_28linux_29" class="headerlink" title="1. 科学算法库的安装(linux)"></a>1. 科学算法库的安装(linux)</h1><p></p><p><br><a id="more"></a></p>
 <ul>
 <li>1.安装Numpy<pre><code>sudo apt-get install python-numpy
@@ -195,6 +195,17 @@ sudo apt-get install python-pyside
 </li>
 <li><strong>Jaccard Similarity Coefficient(杰卡德相似系数)</strong><blockquote>
 <p>杰卡德相似系数：两个集合A,B的交集元素在并集元素中所占的比例，用符号 $ J(A,B) $ 表示<br>$$ J(A,B)=\frac{\mid A\cap B\mid}{\mid A\cup B\mid} $$<br>杰卡德距：与杰卡德相似系数相反的概念：<br>$$ J_\delta(A,B)=1-J(A,B)=\frac{\mid A\cup B\mid-\mid A\cap B\mid}{\mid A\cup B\mid} $$</p>
+</blockquote>
+</li>
+<li><p><strong>特征间的相关性</strong></p>
+<blockquote>
+<ol>
+<li><p>相关系数与相关距离<br> 相关系数：<br> $$ \rho_{XY}=\frac{Cov(X,Y)}{\sqrt{D(X)}\sqrt{D(Y)}}=\frac{E((X-EX)(Y-EY))}{\sqrt{D(X)}\sqrt{D(Y)}} $$<br> 相关距离：<br> $$ D_{XY}=1-\rho_{XY} $$<br> python实现：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">featuremat = mat(...)  <span class="comment"># 初始化矩阵</span></span><br><span class="line"><span class="comment"># 计算均值</span></span><br><span class="line">mv1 = mean(featuremat[<span class="number">0</span>])  <span class="comment"># 计算第一列的均值</span></span><br><span class="line">mv2 = mean(featuremat[<span class="number">1</span>])  <span class="comment"># 计算第二列的均值</span></span><br><span class="line"><span class="comment">#计算两列的标准差</span></span><br><span class="line">dv1 = std(featuremat[<span class="number">0</span>]) </span><br><span class="line">dv2 = std(featuremat[<span class="number">1</span>])</span><br><span class="line">corref = mean(multiply(featuremat[<span class="number">0</span>]-mv1,featuremat[<span class="number">1</span>]-mv2))/(dv1*dv2)</span><br><span class="line"><span class="keyword">print</span> corref  <span class="comment">#输出相关系数</span></span><br><span class="line"><span class="keyword">print</span> corrcoef(featuremat)  <span class="comment">#输出相关系数矩阵</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>马氏距离</p>
+</li>
+</ol>
 </blockquote>
 </li>
 </ul>
