@@ -65,7 +65,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/01/22/「学习笔记」机器学习-1/index.html">
 <meta property="og:site_name" content="Spectop's">
 <meta property="og:description" content="1. 科学算法库的安装(linux)">
-<meta property="og:updated_time" content="2016-03-03T03:03:33.000Z">
+<meta property="og:updated_time" content="2016-03-03T03:10:43.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="「学习笔记」机器学习(1)">
 <meta name="twitter:description" content="1. 科学算法库的安装(linux)">
@@ -443,7 +443,7 @@ sudo apt-get install python-pyside
 <li><p><strong>特征间的相关性</strong></p>
 <blockquote>
 <ol>
-<li><p>相关系数与相关距离<br> 相关系数：<br> $$ \rho_{XY}=\frac{Cov(X,Y)}{\sqrt{D(X)}\sqrt{D(Y)}}=\frac{E((X-EX)(Y-EY))}{\sqrt{D(X)}\sqrt{D(Y)}} $$<br> 相关距离：<br> $$ D_{XY}=1-\rho_{XY} $$<br> python实现：</p>
+<li><p>相关系数与相关距离<br> 相关系数：<br> $$ \rho_{XY}=\frac{Cov(X,Y)}{\sqrt{D(X)}\sqrt{D(Y)}}=\frac{E((X-EX)(Y-EY))}{\sqrt{D(X)}\sqrt{D(Y)}} $$<br> 相关距离：<br> $$ D_{XY}=1-\rho_{XY} $$<br>python实现：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">featuremat = mat(...)  <span class="comment"># 初始化矩阵</span></span><br><span class="line"><span class="comment"># 计算均值</span></span><br><span class="line">mv1 = mean(featuremat[<span class="number">0</span>])  <span class="comment"># 计算第一列的均值</span></span><br><span class="line">mv2 = mean(featuremat[<span class="number">1</span>])  <span class="comment"># 计算第二列的均值</span></span><br><span class="line"><span class="comment">#计算两列的标准差</span></span><br><span class="line">dv1 = std(featuremat[<span class="number">0</span>]) </span><br><span class="line">dv2 = std(featuremat[<span class="number">1</span>])</span><br><span class="line">corref = mean(multiply(featuremat[<span class="number">0</span>]-mv1,featuremat[<span class="number">1</span>]-mv2))/(dv1*dv2)</span><br><span class="line"><span class="keyword">print</span> corref  <span class="comment">#输出相关系数</span></span><br><span class="line"><span class="keyword">print</span> corrcoef(featuremat)  <span class="comment">#输出相关系数矩阵</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>马氏距离</p>
